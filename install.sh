@@ -78,7 +78,7 @@ echo '==================4.4.启动注册中心, 配置中心, 消息中心======
 cd docker-compose
 
 #启动注册中心
-docker-compose -f docker-compose.yml -f docker-compose.nacos.yml up -d nacos
+docker-compose --compatibility -f docker-compose.yml -f docker-compose.nacos.yml up -d nacos
 
 #回到根目录
 cd -
@@ -119,10 +119,10 @@ cd -
 cd docker-compose
 
 #启动网关服务
-docker-compose -f docker-compose.yml -f docker-compose.spring-gateway.yml up -d gateway-web
+docker-compose --compatibility -f docker-compose.yml -f docker-compose.spring-gateway.yml up -d gateway-web
 
 #启动网关管理服务
-docker-compose -f docker-compose.yml -f docker-compose.spring-gateway.yml up -d gateway-admin
+docker-compose --compatibility -f docker-compose.yml -f docker-compose.spring-gateway.yml up -d gateway-admin
 
 #回到根目录
 cd -
@@ -156,7 +156,7 @@ cd -
 cd docker-compose
 
 #启动组织服务
-docker-compose -f docker-compose.yml -f docker-compose.auth.yml up -d organization
+docker-compose --compatibility -f docker-compose.yml -f docker-compose.auth.yml up -d organization
 
 #回到根目录
 cd -
@@ -197,10 +197,10 @@ cd -
 cd docker-compose
 
 #启动网关服务
-docker-compose -f docker-compose.yml -f docker-compose.auth.yml up -d authorization-server
+docker-compose --compatibility -f docker-compose.yml -f docker-compose.auth.yml up -d authorization-server
 
 #启动网关管理服务
-docker-compose -f docker-compose.yml -f docker-compose.auth.yml up -d authentication-server
+docker-compose --compatibility -f docker-compose.yml -f docker-compose.auth.yml up -d authentication-server
 
 #回到根目录
 cd -
@@ -217,7 +217,7 @@ cd -
 cd docker-compose
 
 #启动网关服务
-docker-compose -f docker-compose.yml -f docker-compose.monitor.yml up -d monitor-admin
+docker-compose --compatibility -f docker-compose.yml -f docker-compose.monitor.yml up -d monitor-admin
 
 #回到根目录
 cd -

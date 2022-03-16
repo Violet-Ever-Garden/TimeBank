@@ -14,7 +14,6 @@ services:
       TZ: Asia/Shanghai
     depends_on:
       - authentication-server
-
     deploy:
       resources:
         # 设置容器的资源限制
@@ -23,7 +22,6 @@ services:
           memory: 128M
         #设置为容器预留的系统资源(随时可用)
         reservations:
-          cpus: '0.1'
           memory: 64M
 
   #认证服务
@@ -48,7 +46,6 @@ services:
           memory: 128M
         #设置为容器预留的系统资源(随时可用)
         reservations:
-          cpus: '0.1'
           memory: 64M
 
   #组织服务
@@ -67,9 +64,8 @@ services:
       resources:
         # 设置容器的资源限制
         limits:
-          cpus: '0.20'
+          cpus: '0.10'
           memory: 128M
         #设置为容器预留的系统资源(随时可用)
         reservations:
-          cpus: '0.1'
           memory: 64M

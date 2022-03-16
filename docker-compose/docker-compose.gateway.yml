@@ -45,5 +45,6 @@ services:
           memory: 128M
         #设置为容器预留的系统资源(随时可用)
         reservations:
-          cpus: '0.1'
           memory: 64M
+    environment:
+      - JAVA_OPTS=-Xmx100m -Xms50m -Xss1m
