@@ -11,6 +11,16 @@ services:
     env_file: .env
     ports:
       - 1337:1337/tcp
+    deploy:
+      resources:
+        # 设置容器的资源限制
+        limits:
+          cpus: '0.20'
+          memory: 128M
+        #设置为容器预留的系统资源(随时可用)
+        reservations:
+          cpus: '0.1'
+          memory: 64M
 
   kong:
     image: kong:latest
@@ -27,3 +37,13 @@ services:
       - 8444:8444/tcp
     depends_on:
       - postgres
+    deploy:
+      resources:
+        # 设置容器的资源限制
+        limits:
+          cpus: '0.20'
+          memory: 128M
+        #设置为容器预留的系统资源(随时可用)
+        reservations:
+          cpus: '0.1'
+          memory: 64M

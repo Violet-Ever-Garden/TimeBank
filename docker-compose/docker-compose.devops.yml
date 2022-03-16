@@ -28,7 +28,7 @@ services:
       - cluster.name=elasticsearch
       - bootstrap.memory_lock=true
       - xpack.security.enabled=false
-      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+      - "ES_JAVA_OPTS=-Xms128m -Xmx256m"
       - node.name=elasticsearch_node_1
     ulimits:
       memlock:
@@ -74,6 +74,16 @@ services:
       - 8080:8080
     environment:
       collector.ribbon.listOfServers: skywalking-oap:12800
+    deploy:
+      resources:
+        # 设置容器的资源限制
+        limits:
+          cpus: '0.20'
+          memory: 128M
+        #设置为容器预留的系统资源(随时可用)
+        reservations:
+          cpus: '0.1'
+          memory: 64M
 
   kibana:
     image: kibana:5.6.14
@@ -88,6 +98,16 @@ services:
       - 5601:5601
     depends_on:
       - elasticsearch
+    deploy:
+      resources:
+        # 设置容器的资源限制
+        limits:
+          cpus: '0.20'
+          memory: 128M
+        #设置为容器预留的系统资源(随时可用)
+        reservations:
+          cpus: '0.1'
+          memory: 64M
 
   grafana:
     image: grafana/grafana
@@ -99,3 +119,13 @@ services:
       - sc-net
     ports:
       - 3000:3000
+    deploy:
+      resources:
+        # 设置容器的资源限制
+        limits:
+          cpus: '0.20'
+          memory: 128M
+        #设置为容器预留的系统资源(随时可用)
+        reservations:
+          cpus: '0.1'
+          memory: 64M

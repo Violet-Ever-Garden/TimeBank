@@ -12,3 +12,13 @@ services:
     env_file: .env
     environment:
       TZ: Asia/Shanghai
+    deploy:
+      resources:
+        # 设置容器的资源限制
+        limits:
+          cpus: '0.20'
+          memory: 128M
+        #设置为容器预留的系统资源(随时可用)
+        reservations:
+          cpus: '0.1'
+          memory: 64M

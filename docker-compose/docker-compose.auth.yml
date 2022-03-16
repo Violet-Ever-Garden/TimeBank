@@ -15,6 +15,17 @@ services:
     depends_on:
       - authentication-server
 
+    deploy:
+      resources:
+        # 设置容器的资源限制
+        limits:
+          cpus: '0.20'
+          memory: 128M
+        #设置为容器预留的系统资源(随时可用)
+        reservations:
+          cpus: '0.1'
+          memory: 64M
+
   #认证服务
   authentication-server:
     image: cike/authentication-server:latest
@@ -29,6 +40,16 @@ services:
       TZ: Asia/Shanghai
     depends_on:
       - organization
+    deploy:
+      resources:
+        # 设置容器的资源限制
+        limits:
+          cpus: '0.20'
+          memory: 128M
+        #设置为容器预留的系统资源(随时可用)
+        reservations:
+          cpus: '0.1'
+          memory: 64M
 
   #组织服务
   organization:
@@ -42,3 +63,13 @@ services:
     env_file: .env
     environment:
       TZ: Asia/Shanghai
+    deploy:
+      resources:
+        # 设置容器的资源限制
+        limits:
+          cpus: '0.20'
+          memory: 128M
+        #设置为容器预留的系统资源(随时可用)
+        reservations:
+          cpus: '0.1'
+          memory: 64M
