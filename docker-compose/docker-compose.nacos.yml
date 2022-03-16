@@ -29,7 +29,7 @@ services:
       - sc-net
     volumes:
       - ./nacos/prometheus.yaml:/etc/prometheus/prometheus.yml
-    ports:···
+    ports:
       - "9090:9090"
     depends_on:
       - nacos
