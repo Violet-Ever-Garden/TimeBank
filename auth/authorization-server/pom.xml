@@ -34,6 +34,17 @@
             <version>2.10.0.pr1</version>
             <scope>compile</scope>
         </dependency>
+
+        <!--阿里云sdk
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-core</artifactId>
+        </dependency>-->
+        <!--阿里云 短信sdk
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+        </dependency>-->
     </dependencies>
 
     <build>
